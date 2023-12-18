@@ -4,10 +4,6 @@
 #include <ctype.h>
 
 
-
-#include <stdio.h>
-#include <string.h>
-
 int main() {
 
     char input[100];
@@ -28,7 +24,7 @@ int main() {
 
     }
 
-    if(i >= 4 or i == 2){
+    if(i >= 4 || i == 2){
 
         printf("Unknown operation\n");
 
@@ -38,7 +34,17 @@ int main() {
 
     if(i == 1){
 
-        printf("%s\n", variables[0]);
+        if(variables[0][0] == 126 && variables[0][1] != 45){
+            
+            //special func for TILDE
+
+        }
+
+
+    }
+
+    if(i == 3){
+
         
     }
 }
