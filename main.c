@@ -17,7 +17,7 @@ int main() {
     
     int i = 0;
 
-    char operation[5];
+    char operation[10];
 
     while (token != NULL) {
 
@@ -57,9 +57,11 @@ int main() {
 
         int var2 = determineNumberSystem(variables[2]);
 
+        int op = determineOperation(operation);
+
          
 
-        printf("%d, %s, %d", var1, variables[1][0], var2);
+        printf("%d, %d, %d", var1, op, var2);
 
         
     }

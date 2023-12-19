@@ -10,30 +10,33 @@ int determineNumberSystem(char* number) {
         return 2;
     }
 }
-#include <stdio.h>
 
-int determineOperation(char op) {
-    if (strcmp(op, "+")==0){
+
+int determineOperation(char* op) {
+    if (strcmp(op, "+") == 0){
         return 1;    
     }
-    if (strcmp(op, "-")==0){
+    else if (strcmp(op, "-") == 0){
         return 2;    
     }
-    if (strcmp(op, "&")==0){
+    else if (strcmp(op, "&") == 0){
         return 3;    
     }
-    if (strcmp(op, "%%")==0){
+    else if (strcmp(op, "%") == 0){
         return 4;    
     }
-    if (strcmp(op, "*")==0){
+    else if (strcmp(op, "*") == 0){
         return 5;    
     }
-    if (strcmp(op, "|")==0){
+    else if (strcmp(op, "|") == 0){
         return 6;    
     }
-    if (strcmp(op, "^")==0){
+    else if (strcmp(op, "^") == 0){
         return 7;
     }
-    return 0;
+    else{
+        return 0; // возврат значения по умолчанию, если операция не распознана
+    }
 }
+
 

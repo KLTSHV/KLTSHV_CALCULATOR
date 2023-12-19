@@ -4,4 +4,4 @@
 
 int determineNumberSystem(char* number);
 
-int determineOperation(char op);
+int determineOperation(char* op);
