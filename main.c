@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "2xFuncs.h"
+#include "8xFuncs.h"
+#include "16xFuncs.h"
 
 
 int main() {
@@ -59,9 +61,71 @@ int main() {
 
         int op = determineOperation(operation);
 
-         
+        if(var1 != var2){
 
-        printf("%d, %d, %d", var1, op, var2);
+            printf("Different systems");
+
+            return -1;
+
+        }else{
+
+            int var1InDec;
+
+            int var2InDec;
+
+            if(var1 == 2){
+                
+                var1InDec = binaryToDecimal(variables[0]);
+
+                var2InDec = binaryToDecimal(variables[2]);
+
+                
+            }else if(var1 == 8){
+
+                var1InDec = octalToDecimal(variables[0]);
+
+                var2InDec = octalToDecimal(variables[2]);
+
+            }else if(var1 == 16){
+
+                var1InDec = hexToDecimal(variables[0]);
+
+                var2InDec = hexToDecimal(variables[2]);
+
+
+            }
+
+            int result;
+
+            if(op == 1){
+                
+                result = var1InDec + var2InDec;
+
+            }else if(op == 2){
+
+                result = var1InDec - var2InDec;
+
+            }else if(op == 3){
+
+                result = var1InDec * var2InDec;
+
+            }else if(op == 4){
+
+                result = var1InDec % var2InDec;
+
+            }else if(op == 5){
+
+                result = var1InDec & var2InDec;
+
+            }else if(op == 6){
+
+                result = var1InDec | var2InDec;
+            }else if(op == 7){
+
+                result = var1InDec ^ var2InDec;
+            }
+            printf("%d", result);
+        }
 
         
     }
