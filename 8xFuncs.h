@@ -3,3 +3,5 @@
 #include <math.h>
 
 int octalToDecimal(char octalNumber[]);
+
+char* decimalToOctal(int num);

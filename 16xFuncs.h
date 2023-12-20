@@ -4,3 +4,7 @@
 #include <stdlib.h>
 
 int hexToDecimal(char* hexstr);
+
+char* decimalToHex(int num); 
+
+char* negativeDecimalToHex(int num);

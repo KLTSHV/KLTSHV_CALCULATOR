@@ -8,3 +8,5 @@ int determineNumberSystem(char* number);
 int determineOperation(char* op);
 
 int binaryToDecimal(char* binary);
+
+char* decimalToBinary(int num);

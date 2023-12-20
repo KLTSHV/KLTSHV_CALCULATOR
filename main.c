@@ -9,9 +9,9 @@
 
 int main() {
 
-    char input[100];
+    char input[1000];
 
-    fgets(input, 100, stdin);
+    fgets(input, 1000, stdin);
 
     char *variables[100]; 
 
@@ -34,6 +34,8 @@ int main() {
 
     }
 
+    
+
     if(i >= 4 || i == 2){
 
         printf("Unknown operation\n");
@@ -46,8 +48,8 @@ int main() {
 
         if(variables[0][0] == 126 && variables[0][1] != 45){
             
-            //special func for TILDE
-
+            
+            
         }
 
 
@@ -59,7 +61,7 @@ int main() {
 
         int var2 = determineNumberSystem(variables[2]);
 
-        int op = determineOperation(operation);
+        int op = determineOperation(variables[1]);
 
         if(var1 != var2){
 
@@ -68,6 +70,8 @@ int main() {
             return -1;
 
         }else{
+
+            variables[2][strlen(variables[2])-1] = '\0';
 
             int var1InDec;
 
@@ -92,6 +96,14 @@ int main() {
 
                 var2InDec = hexToDecimal(variables[2]);
 
+
+            }
+
+            if( (op == 4 || op == 5 || op == 6 || op == 7) && (var1InDec < 0 || var2InDec < 0)){
+                
+                printf("Numbers must be greater than zero!");
+
+                return -1;
 
             }
 
@@ -124,7 +136,25 @@ int main() {
 
                 result = var1InDec ^ var2InDec;
             }
-            printf("%d", result);
+            if (var1 == 2){
+                
+                printf("%s", decimalToBinary(result));
+
+            }  
+            if (var1 == 8){
+
+                printf("%s, %d", decimalToOctal(result), result);
+            }  
+            if (var2 == 16){
+                if(result >= 0){
+                printf("%s, %d", decimalToHex(result), result);
+
+                }
+                else if(result < 0){
+
+                    printf("%s", negativeDecimalToHex(result));
+                }
+            }
         }
 
         
