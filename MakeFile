@@ -1,6 +1,0 @@
-.PHONY
-
-all: main
-	./main
-
-run: 

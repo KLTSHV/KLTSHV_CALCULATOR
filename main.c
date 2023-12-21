@@ -46,9 +46,27 @@ int main() {
 
     if(i == 1){
 
+            int specialresult;
         if(variables[0][0] == 126 && variables[0][1] != 45){
             
-            
+            int var0 = determineNumberSystem(removeFirstChar(variables[0]));
+
+            if (var0 == 2){
+
+                int var0InDecimal = binaryToDecimal(removeFirstChar(variables[0]));
+                specialresult = ~var0InDecimal;
+                printf("%s (%d)", decimalToBinary(specialresult), specialresult);
+            } else if(var0 == 8){
+
+               int var0InDecimal = octalToDecimal(removeFirstChar(variables[0]));
+                specialresult = ~var0InDecimal;
+                printf("%s (%d)", decimalToOctal(specialresult), specialresult); 
+            }else{
+
+                int var0InDecimal = hexToDecimal(removeFirstChar(variables[0]));
+                specialresult = ~var0InDecimal;
+                printf("%s (%d)", decimalToHex(specialresult), specialresult);
+            }
             
         }
 

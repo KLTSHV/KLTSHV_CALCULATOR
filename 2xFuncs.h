@@ -10,3 +10,5 @@ int determineOperation(char* op);
 int binaryToDecimal(char* binary);
 
 char* decimalToBinary(int num);
+
+char* removeFirstChar(const char* input);

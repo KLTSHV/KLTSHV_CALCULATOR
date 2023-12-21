@@ -52,12 +52,12 @@ char* decimalToBinary(int num) {
     int start = 0;
     int end = i - 1;
 
-    for(int pl = 0; pl < strlen(num); pl++){
+    // for(int pl = 0; pl < strlen(num); pl++){
 
-        if (strcmp(num[pl], '1') != 0 && strcmp(num[pl], '0') != 0){
+    //     if (strcmp(num[pl], '1') != 0 && strcmp(num[pl], '0') != 0){
 
-        }
-    }
+    //     }
+    // }
     while (start < end) {
         char temp = binaryString[start];
         binaryString[start] = binaryString[end];
@@ -131,6 +131,18 @@ int determineOperation(char* op) {
     else{
         return 0; // возврат значения по умолчанию, если операция не распознана
     }
+}
+
+
+char* removeFirstChar(const char* input) {
+    if (input == NULL || input[0] == '\0') {
+        return NULL;
+    }
+
+    char* result = (char*)malloc(strlen(input));  // Выделяем память для новой строки
+    strcpy(result, input + 1);  // Копируем исходную строку без первого символа
+    
+    return result;
 }
 
 
