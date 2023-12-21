@@ -138,21 +138,21 @@ int main() {
             }
             if (var1 == 2){
                 
-                printf("%s", decimalToBinary(result));
+                printf("%s (%d)", decimalToBinary(result), result);
 
             }  
             if (var1 == 8){
 
-                printf("%s, %d", decimalToOctal(result), result);
+                printf("%s, (%d)", decimalToOctal(result), result);
             }  
             if (var2 == 16){
                 if(result >= 0){
-                printf("%s, %d", decimalToHex(result), result);
+                printf("%s, (%d)", decimalToHex(result), result);
 
                 }
                 else if(result < 0){
 
-                    printf("%s", negativeDecimalToHex(result));
+                    printf("%s (%d)", negativeDecimalToHex(result), result);
                 }
             }
         }

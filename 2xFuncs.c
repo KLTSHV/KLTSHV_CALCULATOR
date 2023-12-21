@@ -51,6 +51,13 @@ char* decimalToBinary(int num) {
     // Реверсируем строку, чтобы получить правильный порядок битов
     int start = 0;
     int end = i - 1;
+
+    for(int pl = 0; pl < strlen(num); pl++){
+
+        if (strcmp(num[pl], '1') != 0 && strcmp(num[pl], '0') != 0){
+
+        }
+    }
     while (start < end) {
         char temp = binaryString[start];
         binaryString[start] = binaryString[end];
