@@ -49,8 +49,8 @@ char* decimalToHex(int num) {
 
 
 char* negativeDecimalToHex(int num) {
-    char* hexString = (char*)malloc(20 * sizeof(char)); // Выделяем память под строку
-    sprintf(hexString, "-0x%X", abs(num)); // Используем функцию sprintf для форматированной записи числа в шестнадцатиричной системе с учетом знака
+    char* hexString = (char*)malloc(20 * sizeof(char)); 
+    sprintf(hexString, "-0x%X", abs(num)); 
     return hexString;
 }
 

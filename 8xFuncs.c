@@ -19,18 +19,17 @@ int octalToDecimal(char *octalNumber) {
     int isNegative = 0;
     int startIndex = 0;
 
-    // Проверяем, является ли число отрицательным
     if (octalNumber[0] == '-') {
         isNegative = 1;
         startIndex = 1;
     }
 
-    // Преобразуем в десятичное число
+
     for (int i = startIndex; i < length; i++) {
         decimalNumber += (octalNumber[i] - '0') * pow(8, length - 1 - i);
     }
 
-    // Учитываем знак числа
+
     if (isNegative) {
         decimalNumber = -decimalNumber;
     }
@@ -40,18 +39,18 @@ int octalToDecimal(char *octalNumber) {
 
 
 char* decimalToOctal(int num) {
-    char octalString[20]; // Выделяем память под строку
+    char octalString[20]; 
     int isNegative = 0;
 
     if (num < 0) {
         isNegative = 1;
-        num = -num; // Преобразуем отрицательное число в положительное для удобства
+        num = -num; 
     }
 
-    sprintf(octalString, "%s%o", (isNegative ? "-0" : "0"), num); // Форматируем число в восьмеричную систему
+    sprintf(octalString, "%s%o", (isNegative ? "-0" : "0"), num); 
 
-    char* result = (char*)malloc((sizeof(octalString) + 1) * sizeof(char)); // Выделяем память для строки octalString + '\0'
-    sprintf(result, "%s", octalString); // Копируем значение из octalString в result
+    char* result = (char*)malloc((sizeof(octalString) + 1) * sizeof(char)); 
+    sprintf(result, "%s", octalString); 
     return result;
 }
 
