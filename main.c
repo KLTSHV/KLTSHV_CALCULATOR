@@ -81,6 +81,7 @@ int main() {
 
         int op = determineOperation(variables[1]);
 
+
         if(var1 != var2){
 
             printf("Different systems");
@@ -89,6 +90,7 @@ int main() {
 
         }else{
 
+            
             variables[2][strlen(variables[2])-1] = '\0';
 
             int var1InDec;
@@ -99,6 +101,12 @@ int main() {
                 
                 var1InDec = binaryToDecimal(variables[0]);
 
+                if(isBinaryNumber(variables[0])==0 || isBinaryNumber(variables[2])==0){
+                    printf("Wrong Written number");
+                    return -1;
+                    
+                }
+
                 var2InDec = binaryToDecimal(variables[2]);
 
                 
@@ -106,11 +114,19 @@ int main() {
 
                 var1InDec = octalToDecimal(variables[0]);
 
+                if(isOctalNumber(variables[0])==0 || isOctalNumber(variables[2])==0){
+                    printf("Wrong Written number");
+                    return -1;}
+
                 var2InDec = octalToDecimal(variables[2]);
 
             }else if(var1 == 16){
 
                 var1InDec = hexToDecimal(variables[0]);
+
+                 if(isHexadecimalNumber(variables[0])==0 || isHexadecimalNumber(variables[2])==0){
+                    printf("Wrong Written number");
+                    return -1;}
 
                 var2InDec = hexToDecimal(variables[2]);
 

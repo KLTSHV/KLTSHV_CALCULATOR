@@ -12,3 +12,5 @@ int binaryToDecimal(char* binary);
 char* decimalToBinary(int num);
 
 char* removeFirstChar(const char* input);
+
+int isBinaryNumber(const char* input);

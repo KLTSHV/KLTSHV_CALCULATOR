@@ -8,7 +8,7 @@ int binaryToDecimal(char* binaryNumber) {
     int length = strlen(binaryNumber);
     int isNegative = 0;
     
-    // Определение, является ли число отрицательным
+ 
     if (binaryNumber[0] == '-') {
         isNegative = 1;
     }
@@ -19,7 +19,7 @@ int binaryToDecimal(char* binaryNumber) {
         }
     }
 
-    // Обработка отрицательных чисел
+
     if (isNegative) {
         decimalNumber = -decimalNumber;
     }
@@ -28,36 +28,29 @@ int binaryToDecimal(char* binaryNumber) {
 }
 
 char* decimalToBinary(int num) {
-    char binaryString[33]; // Выделяем память под строку (32 символа для двоичного представления и 1 символ для завершающего нуля)
-
+    char binaryString[33]; 
     int i = 0;
     int isNegative = 0;
 
     if (num < 0) {
         isNegative = 1;
-        num = -num; // Преобразуем отрицательное число в положительное
+        num = -num; 
     }
 
     if (num == 0) {
         binaryString[i++] = '0';
     } else {
         while (num > 0) {
-            binaryString[i++] = (num % 2) + '0'; // Преобразуем остаток от деления в символ и добавляем его к строке
-            num = num / 2; // Делаем целочисленное деление
+            binaryString[i++] = (num % 2) + '0';
+            num = num / 2; 
         }
     }
-    binaryString[i] = '\0'; // Добавляем завершающий нуль
+    binaryString[i] = '\0'; 
 
-    // Реверсируем строку, чтобы получить правильный порядок битов
+ 
     int start = 0;
     int end = i - 1;
 
-    // for(int pl = 0; pl < strlen(num); pl++){
-
-    //     if (strcmp(num[pl], '1') != 0 && strcmp(num[pl], '0') != 0){
-
-    //     }
-    // }
     while (start < end) {
         char temp = binaryString[start];
         binaryString[start] = binaryString[end];
@@ -67,21 +60,21 @@ char* decimalToBinary(int num) {
     }
 
     if (isNegative) {
-        // Выделяем память под строку с учетом знака минуса и завершающего нуля
+       
         char* result = malloc(i + 2);
         result[0] = '-';
         for (int j = 0; j < i; j++) {
             result[j + 1] = binaryString[j];
         }
-        result[i + 1] = '\0'; // Добавляем завершающий нуль
+        result[i + 1] = '\0'; 
         return result;
     } else {
-        // Если число положительное, выделяем память под строку и копируем в нее двоичное представление
+        
         char* result = malloc(i + 1);
         for (int j = 0; j < i; j++) {
             result[j] = binaryString[j];
         }
-        result[i] = '\0'; // Добавляем завершающий нуль
+        result[i] = '\0'; 
         return result;
     }}
 
@@ -129,7 +122,7 @@ int determineOperation(char* op) {
         return 7;
     }
     else{
-        return 0; // возврат значения по умолчанию, если операция не распознана
+        return 0; 
     }
 }
 
@@ -139,10 +132,18 @@ char* removeFirstChar(const char* input) {
         return NULL;
     }
 
-    char* result = (char*)malloc(strlen(input));  // Выделяем память для новой строки
-    strcpy(result, input + 1);  // Копируем исходную строку без первого символа
+    char* result = (char*)malloc(strlen(input)); 
+    strcpy(result, input + 1);  
     
     return result;
+}
+int isBinaryNumber(const char* input) {
+    for (int i = 0; i < strlen(input); i++) {
+        if (input[i] != '0' && input[i] != '1') {
+            return 0;  
+        }
+    }
+    return 1; 
 }
 
 

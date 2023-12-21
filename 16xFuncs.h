@@ -8,3 +8,5 @@ int hexToDecimal(char* hexstr);
 char* decimalToHex(int num); 
 
 char* negativeDecimalToHex(int num);
+
+int isHexadecimalNumber(const char* input);

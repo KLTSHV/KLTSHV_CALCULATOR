@@ -3,6 +3,14 @@
 #include <math.h>
 #include <stdlib.h>
 
+int isOctalNumber(const char* input) {
+    for (int i = 0; i < strlen(input); i++) {
+        if (input[i] < '0' || input[i] > '7') {
+            return 0;  
+        }
+    }
+    return 1; 
+}
 
 int octalToDecimal(char *octalNumber) {
     int decimalNumber = 0;

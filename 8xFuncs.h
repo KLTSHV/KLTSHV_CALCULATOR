@@ -5,3 +5,5 @@
 int octalToDecimal(char octalNumber[]);
 
 char* decimalToOctal(int num);
+
+int isOctalNumber(const char* input);

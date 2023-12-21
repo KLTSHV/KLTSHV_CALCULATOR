@@ -10,13 +10,12 @@ int hexToDecimal(char *hexNumber) {
     int isNegative = 0;
     int startIndex = 0;
 
-    // Проверяем, является ли число отрицательным
     if (hexNumber[0] == '-') {
         isNegative = 1;
         startIndex = 1;
     }
 
-    // Преобразуем в десятичное число
+
     for (int i = startIndex + 2; i < length; i++) {
         int digitValue;
         if (hexNumber[i] >= '0' && hexNumber[i] <= '9') {
@@ -27,12 +26,12 @@ int hexToDecimal(char *hexNumber) {
             digitValue = hexNumber[i] - 'a' + 10;
         } else {
             printf("Некорректный символ в шестнадцатеричном числе: %c\n", hexNumber[i]);
-            return 0;  // Возврат, если обнаружен некорректный символ
+            return 0; 
         }
         decimalNumber += digitValue * pow(16, length - 1 - i);
     }
 
-    // Учитываем знак числа
+
     if (isNegative) {
         decimalNumber = -decimalNumber;
     }
@@ -41,17 +40,29 @@ int hexToDecimal(char *hexNumber) {
 }
 
 
-// Функция для перевода положительного десятичного числа в шестнадцатиричную систему
+
 char* decimalToHex(int num) {
-    char* hexString = (char*)malloc(20 * sizeof(char)); // Выделяем память под строку
-    sprintf(hexString, "0x%X", num); // Используем функцию sprintf для форматированной записи числа в шестнадцатиричной системе
+    char* hexString = (char*)malloc(20 * sizeof(char)); 
+    sprintf(hexString, "0x%X", num); 
     return hexString;
 }
 
-// Функция для перевода отрицательного десятичного числа в шестнадцатиричную систему
+
 char* negativeDecimalToHex(int num) {
     char* hexString = (char*)malloc(20 * sizeof(char)); // Выделяем память под строку
     sprintf(hexString, "-0x%X", abs(num)); // Используем функцию sprintf для форматированной записи числа в шестнадцатиричной системе с учетом знака
     return hexString;
 }
 
+int isHexadecimalNumber(const char* input) {
+    if (strlen(input) < 3 || strncmp(input, "0x", 2) != 0) {
+        return 0;  
+    }
+
+    for (int i = 2; i < strlen(input); i++) {
+        if (!isxdigit(input[i])) {
+            return 0;  
+        }
+    }
+    return 1; 
+}
