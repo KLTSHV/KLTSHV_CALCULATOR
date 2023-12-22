@@ -15,7 +15,8 @@ int binaryToDecimal(char* binaryNumber) {
 
     for (int i = length - 1; i >= isNegative; i--) {
         if (binaryNumber[i] == '1') {
-            decimalNumber += pow(2, length - 1 - i);
+            decimalNumber += pow(2, length - 2 - i);
+            
         }
     }
 

@@ -1,4 +1,4 @@
-.PHONY: run clear all
+.PHONY: run clean all
 
 all: main
 
@@ -18,7 +18,7 @@ main.o: main.c
 16xFuncs.o: 16xFuncs.c
 	gcc $(FLAG) -c 16xFuncs.c
 
-clear:
+clean:
 	rm -f main *.o
 	
 run: main

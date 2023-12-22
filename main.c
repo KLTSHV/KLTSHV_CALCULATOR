@@ -7,6 +7,7 @@
 #include "16xFuncs.h"
 
 
+
 int main() {
 
     char input[1000];
@@ -49,24 +50,28 @@ int main() {
             int specialresult;
         if(variables[0][0] == 126 && variables[0][1] != 45){
             
-            int var0 = determineNumberSystem(removeFirstChar(variables[0]));
+            char *rfc = removeFirstChar(variables[0]);
+            int var0 = determineNumberSystem(rfc);
 
             if (var0 == 2){
 
-                int var0InDecimal = binaryToDecimal(removeFirstChar(variables[0]));
+                int var0InDecimal = binaryToDecimal(rfc);
                 specialresult = ~var0InDecimal;
-                printf("%s (%d)", decimalToBinary(specialresult), specialresult);
+                printf("%s (%d), v0inDec = %d, removedfchar = %s", decimalToBinary(specialresult), specialresult, var0InDecimal, rfc);
             } else if(var0 == 8){
 
-               int var0InDecimal = octalToDecimal(removeFirstChar(variables[0]));
+               int var0InDecimal = octalToDecimal(rfc);
                 specialresult = ~var0InDecimal;
                 printf("%s (%d)", decimalToOctal(specialresult), specialresult); 
             }else{
 
-                int var0InDecimal = hexToDecimal(removeFirstChar(variables[0]));
+                int var0InDecimal = hexToDecimal(rfc);
                 specialresult = ~var0InDecimal;
                 printf("%s (%d)", decimalToHex(specialresult), specialresult);
+                 
             }
+
+            free(rfc);
             
         }
 
@@ -169,6 +174,10 @@ int main() {
             }else if(op == 7){
 
                 result = var1InDec ^ var2InDec;
+            }else if(op == 0){
+
+                printf("Error");
+                return -1;
             }
             if (var1 == 2){
                 
@@ -176,23 +185,28 @@ int main() {
 
             }  
             if (var1 == 8){
-
-                printf("%s, (%d)", decimalToOctal(result), result);
+                char *t8 = decimalToOctal(result);
+                printf("%s, (%d)", t8, result);
+                free(t8);
             }  
             if (var2 == 16){
                 if(result >= 0){
-                printf("%s, (%d)", decimalToHex(result), result);
+                    char *t16 = decimalToHex(result);
+                    printf("%s, (%d)", t16, result);
+                    free(t16);
 
                 }
                 else if(result < 0){
-
-                    printf("%s (%d)", negativeDecimalToHex(result), result);
+                    char *t16 = negativeDecimalToHex(result);
+                    printf("%d (%s)", t16, result);
+                    free(t16);
                 }
             }
         }
 
         
     }
+    return 0;
 }
 
 
